@@ -12,5 +12,6 @@ data class Resep(
     val langkah: String,
     val kategori: String,
     val waktuMasak: Int,
-    val tanggalDitambahkan: String
+    val tanggalDitambahkan: String,
+    val imageUrl: String
 )

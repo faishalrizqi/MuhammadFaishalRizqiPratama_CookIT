@@ -23,7 +23,7 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController(), re
             HomeScreen(navController, resepViewModel)
         }
         composable(Screen.TambahResep.route) {
-            TambahResepScreen(navController, resepViewModel)
+            TambahResepScreen(navController = navController, viewModel = resepViewModel)
         }
         composable(
             route = Screen.DetailResep.route,

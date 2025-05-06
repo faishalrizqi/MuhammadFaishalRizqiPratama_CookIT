@@ -26,4 +26,6 @@
     <string name="edit">Edit</string>
     <string name="makanan_berat">Makanan Berat</string>
     <string name="makanan_ringan">Makanan Ringan</string>
+    <string name="image_url">URL Gambar</string>
+    <string name="gambar_resep">Gambar Resep</string>
 </resources>
