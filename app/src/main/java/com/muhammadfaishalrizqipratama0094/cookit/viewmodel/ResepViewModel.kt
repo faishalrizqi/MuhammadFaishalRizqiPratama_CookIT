@@ -5,14 +5,23 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.muhammadfaishalrizqipratama0094.cookit.database.ResepDb
 import com.muhammadfaishalrizqipratama0094.cookit.model.Resep
+import com.muhammadfaishalrizqipratama0094.cookit.util.SettingsDataStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class ResepViewModel(application: Application) : AndroidViewModel(application) {
     private val resepDao = ResepDb.getInstance(application).dao
-
     val semuaResep = resepDao.getAllResep()
+
+    private val settingsDataStore = SettingsDataStore(application)
+    val layoutPrefence = settingsDataStore.layoutPreference
+
+    fun setLayoutPreference(isList: Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+            settingsDataStore.saveLayoutPreference(isList)
+        }
+    }
 
     fun tambahResep(resep: Resep) {
         viewModelScope.launch(Dispatchers.IO) {
