@@ -1,0 +1,42 @@
+package com.muhammadfaishalrizqipratama0094.cookit.navigation
+
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.muhammadfaishalrizqipratama0094.cookit.viewmodel.ResepViewModel
+
+@Composable
+fun ResepNavGraph(
+    navController: NavHostController = rememberNavController(),
+    resepViewModel: ResepViewModel
+) {
+    NavHost(
+        navController = navController,
+        startDestination = Screen.Home.route
+    ) {
+        composable(Screen.Home.route) {
+            HomeScreen(navController, resepViewModel)
+        }
+        composable(Screen.TambahResep.route) {
+            TambahResepScreen(navController, resepViewModel)
+        }
+        composable(
+            route = Screen.DetailResep.route,
+            arguments = listOf(navArgument("resepId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val resepId = backStackEntry.arguments?.getLong("resepId") ?: 0L
+            DetailResepScreen(navController, resepViewModel, resepId)
+        }
+        composable(
+            route = Screen.EditResep.route,
+            arguments = listOf(navArgument("resepId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val resepId = backStackEntry.arguments?.getLong("resepId") ?: 0L
+            EditResepScreen(navController, resepViewModel, resepId)
+        }
+    }
+}
