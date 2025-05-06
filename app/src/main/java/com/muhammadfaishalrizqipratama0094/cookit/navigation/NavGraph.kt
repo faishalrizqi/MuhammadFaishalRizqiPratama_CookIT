@@ -7,13 +7,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.DetailResepScreen
+import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.EditResepScreen
+import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.HomeScreen
+import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.TambahResepScreen
 import com.muhammadfaishalrizqipratama0094.cookit.viewmodel.ResepViewModel
 
 @Composable
-fun ResepNavGraph(
-    navController: NavHostController = rememberNavController(),
-    resepViewModel: ResepViewModel
-) {
+fun SetupNavGraph(navController: NavHostController = rememberNavController(), resepViewModel: ResepViewModel) {
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route

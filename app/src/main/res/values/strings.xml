@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">CookIT</string>
+    <string name="toogle_layout">Toogle Layout</string>
+    <string name="tambah_resep">Tambah Resep</string>
+    <string name="hapus_resep">Hapus Resep</string>
+    <string name="pesan">Apakah Anda yakin ingin menghapus resep ini?</string>
+    <string name="list_kosong">Belum ada resep</string>
+    <string name="list_kosong_keterangan">Klik tombol + untuk menambahkan resep</string>
+    <string name="tambah_resep_baru">Tambah Resep Baru</string>
+    <string name="kembali">Kembali</string>
+    <string name="nama_resep">Nama Resep</string>
+    <string name="bahan">Bahan-bahan</string>
+    <string name="langkah">Langkah-langkah</string>
+    <string name="kategori">Kategori</string>
+    <string name="waktu">Waktu Masak (Menit)</string>
+    <string name="simpan">Simpan Resep</string>
+    <string name="update">Update Resep</string>
+    <string name="list_bahan">Bahan-bahan:</string>
+    <string name="list_langkah">Langkah-langkah:</string>
+    <string name="list_waktu">Waktu Masak:</string>
+    <string name="menit">menit</string>
+    <string name="waktu_ditambahkan">Ditambahkan pada:</string>
+    <string name="detail_resep">Detail Resep</string>
+    <string name="edit_resep">Edit Resep</string>
+    <string name="hapus">Hapus</string>
+    <string name="edit">Edit</string>
+    <string name="makanan_berat">Makanan Berat</string>
+    <string name="makanan_ringan">Makanan Ringan</string>
 </resources>

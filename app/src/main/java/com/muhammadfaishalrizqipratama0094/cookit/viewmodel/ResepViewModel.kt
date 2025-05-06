@@ -15,7 +15,7 @@ class ResepViewModel(application: Application) : AndroidViewModel(application) {
     val semuaResep = resepDao.getAllResep()
 
     private val settingsDataStore = SettingsDataStore(application)
-    val layoutPrefence = settingsDataStore.layoutPreference
+    val layoutPreference = settingsDataStore.layoutPreference
 
     fun setLayoutPreference(isList: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
