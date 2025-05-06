@@ -28,4 +28,9 @@
     <string name="makanan_ringan">Makanan Ringan</string>
     <string name="image_url">URL Gambar</string>
     <string name="gambar_resep">Gambar Resep</string>
+    <string name="invalid_nama">Nama resep tidak boleh kosong!</string>
+    <string name="invalid_bahan">Bahan-bahan tidak boleh kosong!</string>
+    <string name="invalid_langkah">Langkah-langkah tidak boleh kosong!</string>
+    <string name="invalid_kategori">Pilih kategori!</string>
+    <string name="invalid_waktu">Waktu masak tidak boleh kosong!</string>
 </resources>
