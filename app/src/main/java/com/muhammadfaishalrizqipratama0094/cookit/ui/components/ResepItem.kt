@@ -53,7 +53,7 @@ fun ResepItem(
                 modifier = Modifier.padding(top = 8.dp)
             )
             Text(
-                text = stringResource(R.string.list_waktu) + " ${resep.waktuMasak}" + stringResource(R.string.menit),
+                text = stringResource(R.string.list_waktu) + " ${resep.waktuMasak} " + stringResource(R.string.menit),
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(top = 4.dp)
             )
