@@ -1,6 +1,5 @@
 package com.muhammadfaishalrizqipratama0094.cookit.ui.screen
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -9,13 +8,13 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ColorLens
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -71,6 +70,20 @@ fun HomeScreen(
                             onDismissRequest = { showMenu = false }
                         ) {
                             DropdownMenuItem(
+                                text = { Text(stringResource(R.string.theme_settings)) },
+                                leadingIcon = {
+                                    Icon(
+                                        Icons.Default.ColorLens,
+                                        contentDescription = null
+                                    )
+                                },
+                                onClick = {
+                                    navController.navigate(Screen.ThemeSettings.route)
+                                    showMenu = false
+                                }
+                            )
+
+                            DropdownMenuItem(
                                 text = { Text(stringResource(R.string.recycle_bin)) },
                                 leadingIcon = {
                                     Icon(
@@ -87,11 +100,7 @@ fun HomeScreen(
                     }
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = if (isSystemInDarkTheme()) {
-                        Color(0xFFE65100)
-                    } else {
-                        Color(0xFFFF9800)
-                    },
+                    containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                     navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 )
@@ -102,11 +111,7 @@ fun HomeScreen(
                 onClick = {
                     navController.navigate(Screen.TambahResep.route)
                 },
-                containerColor = if (isSystemInDarkTheme()) {
-                    Color(0xFFE65100)
-                } else {
-                    Color(0xFFFF9800)
-                },
+                containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.onPrimaryContainer
             ) {
                 Icon(

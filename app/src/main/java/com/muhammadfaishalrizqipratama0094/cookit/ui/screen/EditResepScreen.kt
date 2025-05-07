@@ -1,6 +1,5 @@
 package com.muhammadfaishalrizqipratama0094.cookit.ui.screen
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,7 +32,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.KeyboardType
@@ -94,11 +92,7 @@ fun EditResepScreen(
                         }
                     },
                     colors = TopAppBarDefaults.mediumTopAppBarColors(
-                        containerColor = if (isSystemInDarkTheme()) {
-                            Color(0xFFE65100)
-                        } else {
-                            Color(0xFFFF9800)
-                        },
+                        containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                         navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -192,14 +186,8 @@ fun EditResepScreen(
                     modifier = Modifier.fillMaxWidth(),
                     enabled = nama.isNotBlank() && bahan.isNotBlank() && langkah.isNotBlank() && selectedKategori.isNotBlank(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (isSystemInDarkTheme()) {
-                            Color(0xFFE65100)
-                        } else {
-                            Color(0xFFFF9800)
-                        },
-                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                        disabledContainerColor = Color.Gray.copy(alpha = 0.6f),
-                        disabledContentColor = Color.Gray
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 ) {
                     Text(stringResource(R.string.update))

@@ -18,8 +18,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            CookITTheme {
-                val viewModel: ResepViewModel = viewModel()
+            val viewModel: ResepViewModel = viewModel()
+
+            CookITTheme(viewModel = viewModel) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

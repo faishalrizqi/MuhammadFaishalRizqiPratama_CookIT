@@ -46,4 +46,6 @@
     <string name="deleted_on">Dihapus pada:</string>
     <string name="item_moved_to_bin">Resep telah dipindahkan ke tempat sampah</string>
     <string name="undo">Batalkan</string>
+    <string name="theme_settings">Pengaturan Tema</string>
+    <string name="choose_theme">Pilih Tema Aplikasi</string>
 </resources>
