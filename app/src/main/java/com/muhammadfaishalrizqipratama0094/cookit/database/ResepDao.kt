@@ -19,12 +19,27 @@ interface ResepDao {
     @Delete
     suspend fun delete(resep: Resep)
 
-    @Query("SELECT * FROM resep ORDER BY tanggalDitambahkan DESC")
+    @Query("SELECT * FROM resep WHERE isRecycled = 0 ORDER BY tanggalDitambahkan DESC")
     fun getAllResep(): Flow<List<Resep>>
+
+    @Query("SELECT * FROM resep WHERE isRecycled = 1 ORDER BY deletedDate DESC")
+    fun getRecycledResep(): Flow<List<Resep>>
 
     @Query("SELECT * FROM resep WHERE id = :id")
     suspend fun getResepById(id: Long): Resep?
 
-    @Query("SELECT * FROM resep WHERE nama LIKE '%' || :query || '%'")
+    @Query("SELECT * FROM resep WHERE nama LIKE '%' || :query || '%' AND isRecycled = 0")
     fun searchResep(query: String): Flow<List<Resep>>
+
+    @Query("UPDATE resep SET isRecycled = 1, deletedDate = :deletedDate WHERE id = :id")
+    suspend fun moveToRecycleBin(id: Long, deletedDate: String)
+
+    @Query("UPDATE resep SET isRecycled = 0, deletedDate = NULL WHERE id = :id")
+    suspend fun restoreFromRecycleBin(id: Long)
+
+    @Query("DELETE FROM resep WHERE id = :id")
+    suspend fun permanentlyDelete(id: Long)
+
+    @Query("DELETE FROM resep WHERE isRecycled = 1")
+    suspend fun emptyRecycleBin()
 }

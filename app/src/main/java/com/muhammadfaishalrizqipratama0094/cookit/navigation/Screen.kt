@@ -10,4 +10,6 @@ sealed class Screen(val route: String) {
     data object EditResep : Screen("edit_resep/{resepId}") {
         fun withId(resepId: Long) = "edit_resep/$resepId"
     }
+
+    data object RecycleBin : Screen("recycle_bin")
 }

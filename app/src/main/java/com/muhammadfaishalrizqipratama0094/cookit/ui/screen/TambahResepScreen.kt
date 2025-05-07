@@ -2,6 +2,7 @@ package com.muhammadfaishalrizqipratama0094.cookit.ui.screen
 
 import android.net.Uri
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
@@ -62,7 +63,16 @@ fun TambahResepScreen(
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.kembali))
                     }
-                }
+                },
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    containerColor = if (isSystemInDarkTheme()) {
+                        Color(0xFFE65100)
+                    } else {
+                        Color(0xFFFF9800)
+                    },
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
             )
         }
     ) { padding ->
@@ -203,14 +213,12 @@ fun TambahResepScreen(
 
             Button(
                 onClick = {
-                    // Validate all fields
                     namaError = nama.isBlank()
                     bahanError = bahan.isBlank()
                     langkahError = langkah.isBlank()
                     kategoriError = selectedKategori.isBlank()
                     waktuMasakError = waktuMasak.isBlank() || waktuMasak.toIntOrNull() == null || waktuMasak.toIntOrNull() == 0
 
-                    // Only proceed if all validations pass
                     if (!(namaError || bahanError || langkahError || kategoriError || waktuMasakError)) {
                         val resep = Resep(
                             nama = nama,

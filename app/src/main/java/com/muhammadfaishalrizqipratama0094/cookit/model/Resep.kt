@@ -13,5 +13,7 @@ data class Resep(
     val kategori: String,
     val waktuMasak: Int,
     val tanggalDitambahkan: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val isRecycled: Boolean = false,
+    val deletedDate: String? = null
 )

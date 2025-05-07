@@ -33,4 +33,17 @@
     <string name="invalid_langkah">Langkah-langkah tidak boleh kosong!</string>
     <string name="invalid_kategori">Pilih kategori!</string>
     <string name="invalid_waktu">Waktu masak tidak boleh kosong!</string>
+    <string name="more_options">More Options</string>
+    <string name="recycle_bin">Tempat Sampah</string>
+    <string name="recycle_bin_empty">Tempat Sampah Kosong</string>
+    <string name="recycle_bin_empty_details">Tidak ada resep yang sudah dihapus</string>
+    <string name="restore">Pulihkan</string>
+    <string name="delete_permanently">Hapus Permanen</string>
+    <string name="empty_bin">Kosongkan Tempat Sampah</string>
+    <string name="empty_bin_message">Apakah Anda yakin ingin menghapus permanen semua resep di tempat sampah?</string>
+    <string name="permanent_delete">Hapus Permanen</string>
+    <string name="permanent_delete_message">Apakah Anda yakin ingin menghapus permanen resep ini? Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="deleted_on">Dihapus pada:</string>
+    <string name="item_moved_to_bin">Resep telah dipindahkan ke tempat sampah</string>
+    <string name="undo">Batalkan</string>
 </resources>

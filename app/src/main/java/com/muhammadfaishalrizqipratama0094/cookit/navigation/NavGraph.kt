@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.DetailResepScreen
 import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.EditResepScreen
 import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.HomeScreen
+import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.RecycleBinScreen
 import com.muhammadfaishalrizqipratama0094.cookit.ui.screen.TambahResepScreen
 import com.muhammadfaishalrizqipratama0094.cookit.viewmodel.ResepViewModel
 
@@ -38,6 +39,9 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController(), re
         ) { backStackEntry ->
             val resepId = backStackEntry.arguments?.getLong("resepId") ?: 0L
             EditResepScreen(navController, resepViewModel, resepId)
+        }
+        composable(Screen.RecycleBin.route) {
+            RecycleBinScreen(navController, resepViewModel)
         }
     }
 }

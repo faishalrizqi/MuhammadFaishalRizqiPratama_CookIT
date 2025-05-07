@@ -9,6 +9,8 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -35,6 +37,7 @@ fun HomeScreen(
     val semuaResep by viewModel.semuaResep.collectAsState(initial = emptyList())
     var showDialog by remember { mutableStateOf(false) }
     val resepToDelete by remember { mutableStateOf<Resep?>(null) }
+    var showMenu by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -52,6 +55,35 @@ fun HomeScreen(
                             contentDescription = stringResource(R.string.toogle_layout),
                             tint = MaterialTheme.colorScheme.onPrimaryContainer
                         )
+                    }
+
+                    Box {
+                        IconButton(onClick = { showMenu = true }) {
+                            Icon(
+                                Icons.Default.MoreVert,
+                                contentDescription = stringResource(R.string.more_options),
+                                tint = MaterialTheme.colorScheme.onPrimaryContainer
+                            )
+                        }
+
+                        DropdownMenu(
+                            expanded = showMenu,
+                            onDismissRequest = { showMenu = false }
+                        ) {
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.recycle_bin)) },
+                                leadingIcon = {
+                                    Icon(
+                                        Icons.Default.Delete,
+                                        contentDescription = null
+                                    )
+                                },
+                                onClick = {
+                                    navController.navigate(Screen.RecycleBin.route)
+                                    showMenu = false
+                                }
+                            )
+                        }
                     }
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
@@ -104,8 +136,14 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(stringResource(R.string.list_kosong), style = MaterialTheme.typography.titleMedium)
-                Text(stringResource(R.string.list_kosong_keterangan), style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    stringResource(R.string.list_kosong),
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    stringResource(R.string.list_kosong_keterangan),
+                    style = MaterialTheme.typography.bodyMedium
+                )
             }
         } else {
             if (isList) {
